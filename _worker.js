@@ -839,6 +839,7 @@ function สร้างวเลสSub(ไอดีผู้ใช้_เส้
 	const ส่วนUrlทั่วไปHttps = `?encryption=none&security=tls&sni=${ชื่อโฮสต์}&fp=random&type=ws&host=${ชื่อโฮสต์}&path=%2F%3Fed%3D2048#`;
 
 	const ผลลัพธ์ = อาร์เรย์ไอดีผู้ใช้.flatMap((ไอดีผู้ใช้) => {
+		
 		const การกำหนดค่าHttp = Array.from(เซ็ตพอร์ตHttp).flatMap((พอร์ต) => {
 			if (!ชื่อโฮสต์.includes('pages.dev')) {
 				const ส่วนUrl = `${ชื่อโฮสต์}-HTTP-${พอร์ต}`;
@@ -860,7 +861,7 @@ function สร้างวเลสSub(ไอดีผู้ใช้_เส้
 			});
 		});
 
-		return [...การกำหนดค่าHttp, ...การกำหนดค่าHttps];
+		return [ ...การกำหนดค่าHttps ];
 	});
 
 	return ผลลัพธ์.join('\n');
